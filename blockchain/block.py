@@ -18,5 +18,6 @@ class Block:
         return {
             "data": self.data,
             "timestamp": self.timestamp,
-            "previous_hash": self.previous_hash
+            "previous_hash": self.previous_hash,
+            "nonce": self.nonce
         }
