@@ -9,15 +9,9 @@ class Block:
         self.nonce = ""
 
     def generate_hash(self) -> str:
+        """Return a hexadecimal respresentation of this block's data after hashing."""
+        
         sha256 = hashlib.sha256()
         this_block = self.data + self.previous_hash + str(self.timestamp) + str(self.nonce)
         sha256.update(this_block.encode())
         return sha256.hexdigest()
-    
-    def as_dict(self) -> dict:
-        return {
-            "data": self.data,
-            "timestamp": self.timestamp,
-            "previous_hash": self.previous_hash,
-            "nonce": self.nonce
-        }
